@@ -11,11 +11,16 @@ export function saveUser(userData: { email: string; password: string }) {
 }
 
 export function getAllUser() {
-  return users;
+  return users.map((user) => {
+    return {
+      email: user.email,
+      id: user.id,
+    };
+  });
 }
 
 export function getById(id: string) {
   const currentUser = users.find((user) => user.id == id);
-  console.log(currentUser);
+  if (!currentUser) throw new Error("user not found");
   return { id: currentUser.id, email: currentUser.email };
 }

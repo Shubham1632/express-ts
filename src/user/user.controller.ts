@@ -21,7 +21,7 @@ userRouter.get("/user", (req, res) => {
   res.send(UserService.getAllUser());
 });
 
-userRouter.get("user/:id", (req, res) => {
+userRouter.get("/user/:id", (req, res) => {
   res.send(UserService.getById(req.params.id));
 });
 
